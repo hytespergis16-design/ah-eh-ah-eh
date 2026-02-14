@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For Carl 💖</title>
+  <style>
+    :root{
+      --bg1:#ffe6f0;
+      --bg2:#ffd1dc;
+      --card:#ffffffd6;
+      --text:#2b2b2b;
+      --pink:#ff3d6e;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background: radial-gradient(circle at top, var(--bg1), var(--bg2));
+      overflow:hidden;
+    }
+    .sparkle{
+      position:fixed; inset:0; pointer-events:none; opacity:.35;
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(255,61,110,.9) 0 6px, transparent 7px),
+        radial-gradient(circle at 80% 30%, rgba(255,61,110,.7) 0 5px, transparent 6px),
+        radial-gradient(circle at 60% 80%, rgba(255,61,110,.6) 0 7px, transparent 8px),
+        radial-gradient(circle at 30% 75%, rgba(255,61,110,.8) 0 4px, transparent 5px);
+      animation: floaty 7s ease-in-out infinite;
+      filter: blur(.2px);
+    }
+    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+    .card{
+      width:min(640px, 92vw);
+      background:var(--card);
+      backdrop-filter: blur(10px);
+      border-radius:26px;
+      padding:28px 22px;
+      box-shadow: 0 20px 55px rgba(0,0,0,.18);
+      text-align:center;
+      position:relative;
+    }
+    .pill{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,61,110,.12);
+      color:#7a1f3d;
+      font-weight:700;
+      font-size:13px;
+      margin-bottom:14px;
+    }
+    h1{margin:0; font-size:clamp(28px,4vw,42px); color:var(--text)}
+    .sub{margin:8px 0 18px; color:#444; font-size:16px}
+    .letter{
+      text-align:left;
+      background:#fff;
+      border-radius:18px;
+      padding:18px;
+      line-height:1.6;
+      color:#333;
+      box-shadow: 0 12px 28px rgba(0,0,0,.08);
+      border: 1px solid rgba(0,0,0,.05);
+    }
+    .letter p{margin:0 0 12px}
+    .btns{
+      margin-top:16px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    button{
+      border:0;
+      padding:12px 18px;
+      border-radius:999px;
+      font-size:15px;
+      cursor:pointer;
+      box-shadow: 0 10px 18px rgba(0,0,0,.12);
+      transition: transform .12s ease;
+      user-select:none;
+    }
+    button:hover{transform:translateY(-2px)}
+    #reveal{background:var(--pink); color:#fff;}
+    #copy{background:#fff; color:#333;}
+    .hidden{display:none}
+    .revealBox{
+      margin-top:14px;
+      padding:14px;
+      border-radius:18px;
+      background:rgba(255,61,110,.10);
+      color:#6b1631;
+      font-weight:800;
+    }
+    .footer{
+      margin-top:12px;
+      font-size:12px;
+      color:#555;
+      opacity:.85;
+    }
+  </style>
+</head>
+<body>
+  <div class="sparkle"></div>
+
+  <main class="card">
+    <div class="pill">To: Carl 💗</div>
+    <h1>Happy Valentine’s Day! 🌷</h1>
+    <div class="sub">May small message ako para sayo…</div>
+
+    <section class="letter">
+      <p>Hi <b>Carl</b>,</p>
+      <p>
+        Gusto ko lang sabihin na you make things feel lighter.
+        Yung simple moments, mas nagiging special kasi andyan ka. 😌
+      </p>
+      <p>
+        Thank you sa time, sa patience, at sa presence mo.
+        If ever you need someone, I’m here.
+      </p>
+      <p style="margin-bottom:0;">
+        From, <b>Hytes</b> 💕
+      </p>
+    </section>
+
+    <div class="btns">
+      <button id="reveal">Reveal surprise 🎁</button>
+    </div>
+
+    <div class="revealBox hidden" id="surprise">
+      Date tayo? Kahit coffee or ice cream lang ☕🍦 — ikaw pipili ng araw 😉
+    </div>
+
+    <div class="footer">Made with ❤️ by Hytes</div>
+  </main>
+
+  <script>
+    const surprise = document.getElementById("surprise");
+    const revealBtn = document.getElementById("reveal");
+
+    revealBtn.addEventListener("click", () => {
+      surprise.classList.toggle("hidden");
+      revealBtn.textContent = surprise.classList.contains("hidden")
+        ? "Reveal surprise 🎁"
+        : "Hide surprise 🙈";
+    });
+  </script>
+</body>
+</html>
